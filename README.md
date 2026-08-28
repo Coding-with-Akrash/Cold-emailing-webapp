@@ -1,7 +1,17 @@
-# Cold Emailing System
+# Cold-emailing-webapp
 
+<div align="center">
+  <p><strong>🎯 The Most Advanced AI-Powered Cold-emailing-webapp</strong></p>
+  <p>Generate • Debug • Learn • Optimize</p>
+
+  [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://python.org)
+  [![OpenAI GPT-4o-mini](https://img.shields.io/badge/GPT--4o--mini-powered-green.svg)](https://openai.com)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Stars](https://img.shields.io/github/stars/Coding-with-Akrash/Cold-emailing-webapp?style=social)](https://github.com/Coding-with-Akrash/Cold-emailing-webapp)
+</div>
+---
 A Flask-based web application (with a CLI companion) for extracting emails from PDFs, generating personalized outreach emails with AI enhancement, and sending campaigns via SMTP.
-
+---
 ## Features
 
 - **PDF Extraction** - Extract company names and email addresses from PDF documents
