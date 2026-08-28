@@ -1,0 +1,19 @@
+Subject: Experienced Software Engineer - ${name}
+
+Hi ${company} Team,
+
+I am a passionate software engineer with ${experience_years} years of experience building scalable applications using ${skills}. I am reaching out to explore potential opportunities at ${company}.
+
+About me:
+- Designation: ${role}
+- Key Skills: ${skills}
+- Portfolio: ${portfolio}
+- LinkedIn: ${linkedin}
+
+I am particularly excited about ${company}'s work and would love to contribute to your engineering team.
+
+Looking forward to hearing from you.
+
+Best,
+${name}
+Phone: ${phone}

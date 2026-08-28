@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Cold Emailing - Templates{% endblock %}
+{% block page_title %}Email Templates{% endblock %}
+{% block content %}
+{% with messages = request.args %}
+  {% if messages.get('saved') %}<div class="alert alert-success">Template saved.</div>{% endif %}
+  {% if messages.get('created') %}<div class="alert alert-success">Template created.</div>{% endif %}
+  {% if messages.get('deleted') %}<div class="alert alert-info">Template deleted.</div>{% endif %}
+  {% if messages.get('error') %}<div class="alert alert-danger">{{ messages.get('error') }}</div>{% endif %}
+{% endwith %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <div>
+    <a href="{{ url_for('template_create') }}" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg"></i> Create Template</a>
+  </div>
+</div>
+<div class="row g-3">
+  {% for name in templates %}
+  <div class="col-md-4">
+    <div class="card p-3 h-100">
+      <div class="d-flex justify-content-between align-items-start">
+        <h6 class="fw-bold mb-0">{{ name }}</h6>
+        <div class="btn-group btn-group-sm">
+          <a href="{{ url_for('template_view', name=name) }}" class="btn btn-sm btn-outline-secondary">View</a>
+          <a href="{{ url_for('template_edit', name=name) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+          {% if name not in ('default', 'software_engineer', 'custom') %}
+          <form method="post" action="{{ url_for('template_delete', name=name) }}" class="d-inline">
+            <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+          </form>
+          {% endif %}
+        </div>
+      </div>
+      <p class="text-muted small mt-2 text-truncate">{{ raw[name][:160] }}...</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Cold Emailing - Create Template{% endblock %}
+{% block page_title %}Create Template{% endblock %}
+{% block content %}
+<div class="card p-4">
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Template Name</label>
+      <input type="text" name="name" class="form-control" placeholder="my_template" required>
+      <div class="form-text">Use lowercase letters and underscores only.</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Template Body</label>
+      <textarea name="content" class="form-control font-monospace" rows="14" placeholder="Hi ${company} Team,&#10;&#10;..."></textarea>
+      <div class="form-text">Placeholders: ${name}, ${role}, ${company}, ${skills}, ${experience_years}, ${portfolio}, ${linkedin}, ${github}, ${phone}</div>
+    </div>
+    <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Create</button>
+    <a href="{{ url_for('templates_page') }}" class="btn btn-link">Cancel</a>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Cold Emailing - Stats{% endblock %}
+{% block page_title %}Stats & Logs{% endblock %}
+{% block content %}
+<div class="row g-3">
+  <div class="col-md-3">
+    <div class="card stat-card">
+      <div class="text-muted small">Campaign</div>
+      <div class="fw-bold mt-2">{{ stats.campaign_name }}</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card stat-card">
+      <div class="text-muted small">Total Sent</div>
+      <div class="fs-3 fw-bold text-success">{{ stats.total_sent }}</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card stat-card">
+      <div class="text-muted small">Total Failed</div>
+      <div class="fs-3 fw-bold text-danger">{{ stats.total_failed }}</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card stat-card">
+      <div class="text-muted small">Total Targets</div>
+      <div class="fs-3 fw-bold">{{ stats.total_targets }}</div>
+    </div>
+  </div>
+</div>
+<div class="card mt-3">
+  <div class="card-header">Email Logs</div>
+  <div class="table-responsive">
+    <table class="table table-hover table-nowrap mb-0">
+      <thead class="table-light">
+        <tr><th>To</th><th>Company</th><th>Subject</th><th>Sent At</th><th>Status</th><th>Error</th></tr>
+      </thead>
+      <tbody>
+        {% for log in logs %}
+        <tr>
+          <td>{{ log.to_email }}</td>
+          <td>{{ log.company }}</td>
+          <td class="small">{{ log.subject }}</td>
+          <td>{{ log.sent_at }}</td>
+          <td>
+            <span class="badge bg-{{ 'success' if log.status == 'sent' else ('danger' if log.status == 'failed' else 'warning') }}">
+              {{ log.status }}
+            </span>
+          </td>
+          <td class="small">{{ log.error or '-' }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6" class="text-center text-muted py-4">No logs yet. Send an email to populate this table.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

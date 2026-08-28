@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Cold Emailing - Edit Template{% endblock %}
+{% block page_title %}Edit Template: {{ name }}{% endblock %}
+{% block content %}
+<div class="card p-4">
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Template Body</label>
+      <textarea name="content" class="form-control font-monospace" rows="14">{{ content }}</textarea>
+      <div class="form-text">Placeholders: ${name}, ${role}, ${company}, ${skills}, ${experience_years}, ${portfolio}, ${linkedin}, ${github}, ${phone}</div>
+    </div>
+    <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Save</button>
+    <a href="{{ url_for('templates_page') }}" class="btn btn-link">Cancel</a>
+  </form>
+</div>
+{% endblock %}

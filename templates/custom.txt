@@ -1,0 +1,12 @@
+Subject: ${subject_line}
+
+Dear ${company} Team,
+
+${custom_message}
+
+--
+${name}
+${role}
+${phone}
+${linkedin}
+${portfolio}

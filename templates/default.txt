@@ -1,0 +1,20 @@
+Subject: Application for ${role} Position
+
+Dear Hiring Manager,
+
+I hope this email finds you well. I am writing to express my interest in joining ${company} as a ${role}.
+
+With over ${experience_years} years of experience in ${skills}, I am confident that I can contribute effectively to your team. Currently, I am working as a ${current_role} and have been actively looking for new opportunities in Lahore.
+
+Here are my key details:
+- Resume/Portfolio: ${portfolio}
+- LinkedIn: ${linkedin}
+- GitHub: ${github}
+- Contact: ${phone}
+
+I would welcome the opportunity to discuss how my background aligns with ${company}'s goals. Please find my attached resume and portfolio for your review.
+
+Thank you for your time and consideration.
+
+Best regards,
+${name}

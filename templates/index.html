@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Cold Emailing - Dashboard{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block content %}
+<div class="row g-3">
+  <div class="col-md-3">
+    <div class="card stat-card">
+      <div class="text-muted small">Companies Loaded</div>
+      <div class="display-6 fw-bold mt-2">{{ companies_count }}</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card stat-card">
+      <div class="text-muted small">Emails Extracted</div>
+      <div class="display-6 fw-bold mt-2 text-primary">{{ emails_count }}</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card stat-card">
+      <div class="text-muted small">Emails Sent</div>
+      <div class="display-6 fw-bold mt-2 text-success">{{ stats.total_sent }}</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card stat-card">
+      <div class="text-muted small">Campaign Failed</div>
+      <div class="display-6 fw-bold mt-2 text-danger">{{ stats.total_failed }}</div>
+    </div>
+  </div>
+</div>
+<div class="row g-3 mt-1">
+  <div class="col-md-6">
+    <div class="card p-3">
+      <h6 class="fw-bold">Quick Actions</h6>
+      <div class="d-flex flex-wrap gap-2 mt-2">
+        <a href="{{ url_for('extract_page') }}" class="btn btn-primary"><i class="bi bi-play"></i> Extract Emails from PDF</a>
+        <a href="{{ url_for('generate_page') }}" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Generate Emails</a>
+        <a href="{{ url_for('send_page') }}" class="btn btn-success"><i class="bi bi-send"></i> Send Campaign</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card p-3">
+      <h6 class="fw-bold">Configuration Status</h6>
+      <ul class="list-unstyled mb-0 mt-2">
+        <li><i class="bi bi-{% if config.user.name %}check-circle-fill text-success{% else %}x-circle text-muted{% endif %}"></i> User Profile</li>
+        <li><i class="bi bi-{% if config.smtp_email %}check-circle-fill text-success{% else %}x-circle text-muted{% endif %}"></i> SMTP Settings</li>
+        <li><i class="bi bi-{% if config.openai_api_key %}check-circle-fill text-success{% else %}x-circle text-muted{% endif %}"></i> OpenAI API Key</li>
+        <li><i class="bi bi-{% if companies_count %}check-circle-fill text-success{% else %}x-circle text-muted{% endif %}"></i> Companies Loaded</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

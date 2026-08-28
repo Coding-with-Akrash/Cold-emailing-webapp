@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Cold Emailing - Configuration{% endblock %}
+{% block page_title %}Configuration{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-lg-8">
+    <div class="card p-4">
+      <form method="post">
+        <h6 class="fw-bold mb-3">User Profile</h6>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="name" class="form-control" value="{{ config.user.name }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Role / Designation</label>
+            <input type="text" name="role" class="form-control" value="{{ config.user.role }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Company (if employed)</label>
+            <input type="text" name="company" class="form-control" value="{{ config.user.company }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Years of Experience</label>
+            <input type="text" name="experience_years" class="form-control" value="{{ config.user.experience_years }}">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Skills (comma separated)</label>
+            <input type="text" name="skills" class="form-control" value="{{ config.user.skills }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Portfolio URL</label>
+            <input type="text" name="portfolio" class="form-control" value="{{ config.user.portfolio }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Phone Number</label>
+            <input type="text" name="phone" class="form-control" value="{{ config.user.phone }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">LinkedIn URL</label>
+            <input type="text" name="linkedin" class="form-control" value="{{ config.user.linkedin }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">GitHub URL</label>
+            <input type="text" name="github" class="form-control" value="{{ config.user.github }}">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Key Achievements</label>
+            <textarea name="achievements" class="form-control" rows="2">{{ config.user.achievements }}</textarea>
+          </div>
+        </div>
+
+        <hr class="my-4">
+        <h6 class="fw-bold mb-3">API & SMTP Settings</h6>
+        <div class="row g-3">
+          <div class="col-12">
+            <label class="form-label">OpenAI API Key</label>
+            <input type="password" name="openai_api_key" class="form-control" value="{{ config.openai_api_key }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">SMTP Email (sender)</label>
+            <input type="email" name="smtp_email" class="form-control" value="{{ config.smtp_email }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">SMTP Password / App Password</label>
+            <input type="password" name="smtp_password" class="form-control" value="{{ config.smtp_password }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">SMTP Server</label>
+            <input type="text" name="smtp_server" class="form-control" value="{{ config.smtp_server }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">SMTP Port</label>
+            <input type="number" name="smtp_port" class="form-control" value="{{ config.smtp_port }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">PDF Path</label>
+            <input type="text" name="pdf_path" class="form-control" value="{{ config.pdf_path }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Output Directory</label>
+            <input type="text" name="output_dir" class="form-control" value="{{ config.output_dir }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Campaign Name</label>
+            <input type="text" name="campaign_name" class="form-control" value="{{ config.campaign_name }}">
+          </div>
+        </div>
+        <div class="mt-4">
+          <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Save Configuration</button>
+          <a href="{{ url_for('index') }}" class="btn btn-link">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card p-3">
+      <h6 class="fw-bold">Info</h6>
+      <p class="text-muted small">Settings are saved to <code>config.json</code>. OpenAI key applies GPT-4o-mini for personalization. SMTP requires an app password for Gmail.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
